@@ -1,6 +1,3 @@
-// To parse this JSON data, do
-//
-//     final province = provinceFromJson(jsonString);
 
 import 'dart:convert';
 

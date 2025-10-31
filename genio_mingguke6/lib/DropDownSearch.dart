@@ -32,13 +32,10 @@ class HomePage extends StatelessWidget {
         child: DropdownSearch<Map<String, dynamic>>(
           items: dataList,
 
-          // Memberi tahu widget cara menampilkan string untuk setiap item
-          // Ini digunakan untuk pencarian dan tampilan item yang dipilih
           itemAsString: (Map<String, dynamic>? item) {
             return item?['country'] ?? 'Unknown Country';
           },
 
-          // Dekorasi untuk dropdown
           dropdownDecoratorProps: DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
               labelText: "Pilih Negara",
@@ -47,29 +44,23 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          // Opsi untuk tampilan popup
           popupProps: PopupProps.menu(
-            showSearchBox: true, // Menampilkan kotak pencarian di dalam popup
+            showSearchBox: true,
             itemBuilder: (context, item, isSelected) {
-              // Kustomisasi tampilan setiap item di dalam list popup
               return ListTile(
                 title: Text(item['country']),
                 subtitle: Text("ID: ${item['id']}"),
               );
             },
           ),
-
-          // Fungsi yang akan dipanggil saat item dipilih
           onChanged: (Map<String, dynamic>? selectedItem) {
             if (selectedItem != null) {
               print("Anda memilih: ${selectedItem['country']}");
             }
           },
 
-          // Opsional: item yang dipilih secara default
-          // selectedItem: dataList[4], // Contoh: Indonesia
         ),
       ),
     );
   }
-} // FIX 2: Menambahkan '}' yang hilang untuk menutup class HomePage
+}
